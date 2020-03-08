@@ -1,7 +1,7 @@
 let mongoose = require("./db.js");
 
 let ShopSchema = mongoose.Schema({
-    shop: {
+    notice: {
         type:String,
         default:""
     },

@@ -3,6 +3,7 @@
 let dbManager = {
 	equipItemMapByKey: function(list, key){ //按键装备数据
 		var map = {};
+		
 		for (var i = 0; i < list.length; i++) {
 			//  这里避免污染数据,采取拷贝的形式
 			//  {...item} 也是一种方式

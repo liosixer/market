@@ -9,6 +9,9 @@ var market_test = 'mongodb+srv://liosixer:liosixer2db@cluster0-ecuo5.azure.mongo
     'test?retryWrites=true&w=majority';
 
 var url = market_test;
+
+mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 mongoose.connect(url,
     {useNewUrlParser:true, useUnifiedTopology: true },
     (err)=>{
@@ -17,6 +20,6 @@ mongoose.connect(url,
         retrun;
     }
     console.log("【数据库" + url + "】连接成功");
-});
+}).catch((err)=>{ console.log(err) });
 
 module.exports = mongoose;

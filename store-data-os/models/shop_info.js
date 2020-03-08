@@ -5,6 +5,6 @@ let ShopInfoSchema = mongoose.Schema({
     tel:{type:String, default: ""},
     address:{type:String, default: ""},
     logo:{type:String, default: ""}
-})
+}, {versionKey:false, timestamps:true})
 
 module.exports = mongoose.model("ShopInfo", ShopInfoSchema, "ShopInfo");

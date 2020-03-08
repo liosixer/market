@@ -7,27 +7,28 @@ function inertGoods(){
 
     let GoodModel = require("./models/good.js");
 
-    let utils = require("./common/utils");
-    //先移除数据，再新增数据
-    GoodModel.deleteMany()
+    let Counter = require("./models/counters");
+    Counter.resetCounter("Good")
         .then(()=>{
-                for (let i = 0; i < goods.length; i++) {
-                    let good = goods[i];
-                    good._id = utils.getNextSequence("Good");
-                    GoodModel.insert(goods)}
-                }
-
-            )
-        .then(()=> {
-            GoodModel.find({}, (err, docs) =>{
-                if (err){
-                    console.log(err);
-                    return;
-                }
-                console.log(docs);
-            })
+            //先移除数据，再新增数据
+            GoodModel.deleteMany()
+                .then(()=>{
+                    let total = goods.length;
+                    //获取Good 的 当前sequence
+                    Counter.getCurrentSequencePromise("Good", (err, doc)=>{
+                        if (err) return;
+                        let curSequence = doc[0].sequence_value;
+                        for (let i = 0; i < total; i++) {
+                            let good = goods[i];
+                            curSequence++;
+                            // good.id = good._id = curSequence;
+                            good.id = curSequence;
+                        }
+                        GoodModel.insertMany(goods);
+                        Counter.getStepSequence("Good", total);
+                    })
+                })
         })
-        .catch(err => {console.log(err)});
 }
 
 module.exports = inertGoods;

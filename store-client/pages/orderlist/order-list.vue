@@ -4,23 +4,45 @@
 			<image class="image" mode="widthFix" src="../../static/good.jpg" />
 		</view>
 		
-		<uni-section title="已选物品  『走的时候,别忘了截图发给接单员哦』" style="font: bold;" type="line"></uni-section>
-		<view class="uni-padding-wrap uni-common-mt">
-		<view class="uni-flex uni-row" style="-webkit-flex-wrap: wrap;flex-wrap: wrap;">
-			<view class="text" v-for="item in basket"
-			style="font-size: 14px;">{{ item.name + "  x" + item.num}}</view>
+		<uni-section title="仅显示最近3天的订单信息" style="font: bold;" type="line"></uni-section>
+		
+		<view v-show="list.length == 0">
+			<uni-card
+			:title="empty.title" 
+			:is-shadow="empty.shadow" 
+			:note="empty.note" 
+			:extra="empty.extra" 
+			:thumbnail="empty.thumbnail" >
+			<text class="content-box-text">
+				{{empty.content}}
+			</text>
+			</uni-card>
 		</view>
+		
+		<view v-show="list.length > 0" >
+			<view v-for="item in list" :key="item.id" class="example-box">
+				<uni-card 
+				:id="item.id"
+				:title="item.title" 
+				:is-shadow="item.shadow" 
+				:note="item.note" 
+				:extra="item.extra" 
+				:thumbnail="item.thumbnail" >
+				<text class="content-box-text">{{ item.content }}</text>
+				<block slot="footer">
+					<view class="footer-box">
+						<view class="">
+							<text class="footer-box__item"></text></view>
+						<!-- <view class="" @click.stop="footerClick('modify/' + item.id)">
+							<text class="footer-box__item"> 修改订单</text></view> -->
+						<view class="" @click.stop="footerClick('cancel/' + item.id)">
+							<text class="footer-box__item" style="color: #ff5500;"> 取消订单</text></view>
+					</view>
+				</block>
+				</uni-card>
+			</view>
 		</view>
-		<uni-section title="备注" type="line"></uni-section>
-		<view class="uni-textarea">
-			<textarea :value="comment" disabled auto-height />
-		</view>
-		<uni-section title="联系方式" type="line"></uni-section>
-		<uni-list>
-			<uni-list-item :show-arrow="false" :title="'姓名：' + user.realname" />
-			<uni-list-item :show-arrow="false" :title="'电话：' + user.mobile" />
-			<uni-list-item :show-arrow="false" :title="'地址：' + user.address" />
-		</uni-list>
+		
 	</view>
 </template>
 
@@ -29,39 +51,124 @@
 	import uniSection from '@/components/uni-section/uni-section.vue'
 	import uniList from '@/components/uni-list/uni-list.vue'
 	import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
+	import uniCard from '@/components/uni-card/uni-card.vue'
 	
-	import user from "../../db/user.js"
+	import orderJs from "./order.js";
+	
+	import utils from "../../common/utils.js";
+	
 	export default {
 		components: {
 			uniSection,
 			uniList,
-			uniListItem
+			uniListItem,
+			uniCard
 		},
 		data(){
 			return {
-				basket:[],
+				basket:{},
 				comment:"",
 				user:{
 					"realname": "",
 					"mobile":"",
 					"address": ""
-				}
+				},
+				list: [ 
+					],
+				empty:{
+					id: 0,
+					title: '',
+					content: '空空如也，去买菜吧！',
+					shadow: false,
+					note: '',
+					extra: '',
+					thumbnail: ''
+				},
 			}
 		},
 		onLoad:function(option){
-			const data = JSON.parse(decodeURIComponent(option.data));
-			this.user = data.user;
-			this.basket = data.basket;
-			this.comment = data.comment;
+			// 这里读取一次缓存数据
+			try {
+				// 将缓存的 数据放到对应的联系人方式里面
+				const value = uni.getStorageSync('user');
+				if (value) {
+					this.user.mobile = value.mobile;
+				}
+			} catch (e) {
+				// error
+				uni.showToast({
+					title:"载入数据错误",
+					icon:"none"
+				})
+			}
 		},
 		onShow:function(){
-			// // 获取当前数据
-			// this.comment = uni.getStorageSync('comment');
-			// this.user = user;
-			// this.basket = uni.getStorageSync('basket');
-			// this.theName = "姓名：" + this.info.name;
-			// this.theTel = "电话：" + this.info.tel;
-			// this.theAddress = "地址：" + this.info.address;
+			this.freshOrderList();
+		},
+		
+		onHide:function(){
+			//初始化tabindex 防止重复刷新
+			this.curTabIndex = -1;
+		},
+		
+		onTabItemTap:function(e){
+			// console.log("点击" + e.text);
+		},
+		
+		methods:{
+			footerClick(params) {
+				var list = params.split("/");
+				if (list[0] == "modify"){
+					//修改订单
+					var orderId = list[1];
+					var order = this.basket[orderId];
+					uni.switchTab({
+					    url: '/pages/home/home'
+					});
+					uni.$emit("modifyOrder", order);
+				}else{
+					orderJs.orderCancel(list[1], this.handlerOrderResult);
+				}
+			},
+			
+			//处理订单结果
+			handlerOrderResult:function(result){
+				if (result.data.err_code == 0){
+					uni.showToast({
+						title:"订单取消成功",
+						icon:"none"
+					});
+					this.freshOrderList();
+				}
+			},
+			
+			freshOrderList:function(){
+				var mobile = this.user.mobile;
+				if (mobile == null) return;
+				//请求数据
+				orderJs.getRecentOrder(mobile, (result)=>{
+					if (result.data.err_code == 0){
+						var orderList = result.data.list;
+						this.list = [];
+						
+						for (var i = 0; i < orderList.length; i++) {
+							var orderItem = orderList[i];
+							this.basket[orderItem.id] = orderItem;
+							var create_at = new Date(orderItem.create_at);
+							var cell = {
+								id: orderItem.id,
+								title: utils.dateFormat("YYYY-mm-dd", create_at),
+								extra: orderJs.getOrderStatus(orderItem.status),
+								content: orderJs.getContent(orderItem.comment, orderItem.item_list),
+								shadow: true,
+								note: orderItem.status == 1 ? 'Tips' : "",
+								thumbnail: ''
+							};
+							this.list.push(cell);
+						}
+					}
+				})
+			}
 		}
 	}
 </script>
@@ -125,5 +232,29 @@
 	
 	.desc {
 		/* text-indent: 40upx; */
+	}
+	
+	.content-box {
+		padding-top: 20rpx;
+	}
+	
+	.content-box-text {
+		font-size: 30rpx;
+	}
+	
+	.footer-box {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		justify-content: space-between;
+		flex-direction: row;
+	
+	}
+	
+	.footer-box__item {
+		align-items: center;
+		padding: 10rpx 0;
+		font-size: 30rpx;
+		color: #666;
 	}
 </style>

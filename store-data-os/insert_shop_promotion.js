@@ -19,7 +19,7 @@ function insertShopPromotion() {
                     console.log(err);
                     return;
                 }
-                console.log(doc);
+                // console.log(doc);
             })
         })
         .catch((err)=> console.log(err));

@@ -1,21 +1,63 @@
 [
     {
         "category": "副食",
+        "name": "可比克60克",
+        "unit": "袋",
+        "unit_price": 3.5
+    },
+    {
+        "category": "副食",
+        "name": "馋馋（网红辣条）",
+        "unit": "袋",
+        "unit_price": 5.0
+    },
+    {
+        "category": "副食",
+        "name": "嘉士利薄饼",
+        "unit": "袋",
+        "unit_price": 5.0
+    },
+    {
+        "category": "副食",
+        "name": "熊字饼",
+        "unit": "袋",
+        "unit_price": 3.0
+    },
+    {
+        "category": "副食",
+        "name": "达利园10蛋黄派",
+        "unit": "袋",
+        "unit_price": 7.5
+    },
+    {
+        "category": "副食",
+        "name": "嘉士利早餐饼",
+        "unit": "袋",
+        "unit_price": 3.5
+    },
+    {
+        "category": "副食",
+        "name": "散旺旺",
+        "unit": "斤",
+        "unit_price": 27.0
+    },
+    {
+        "category": "副食",
+        "name": "达利园散面包/蛋糕",
+        "unit": "斤",
+        "unit_price": 16.0
+    },
+    {
+        "category": "副食",
+        "name": "特价蛋糕",
+        "unit": "斤",
+        "unit_price": 19.9
+    },
+    {
+        "category": "副食",
         "name": "槟榔（小）",
         "unit": "袋",
         "unit_price": 15.0
-    },
-    {
-        "category": "副食",
-        "name": "槟榔（中）",
-        "unit": "袋",
-        "unit_price": 20.0
-    },
-    {
-        "category": "副食",
-        "name": "槟榔（大）",
-        "unit": "袋",
-        "unit_price": 30.0
     },
     {
         "category": "副食",
@@ -25,9 +67,9 @@
     },
     {
         "category": "副食",
-        "name": "三只松鼠甘粟仁",
+        "name": "方便面(袋)",
         "unit": "袋",
-        "unit_price": 6.0
+        "unit_price": 2.5
     },
     {
         "category": "副食",
@@ -61,6 +103,90 @@
     },
     {
         "category": "副食",
+        "name": "洽洽瓜子110克",
+        "unit": "袋",
+        "unit_price": 4.5
+    },
+    {
+        "category": "副食",
+        "name": "嘉士利威化115克",
+        "unit": "袋",
+        "unit_price": 5.0
+    },
+    {
+        "category": "副食",
+        "name": "有友豆干90克",
+        "unit": "袋",
+        "unit_price": 4.0
+    },
+    {
+        "category": "副食",
+        "name": "有友笋尖120克",
+        "unit": "袋",
+        "unit_price": 5.0
+    },
+    {
+        "category": "副食",
+        "name": "五穷烤鸡小腿60克",
+        "unit": "袋",
+        "unit_price": 17.5
+    },
+    {
+        "category": "副食",
+        "name": "五穷烤鸡小腿20克",
+        "unit": "个",
+        "unit_price": 5.0
+    },
+    {
+        "category": "副食",
+        "name": "无穷鸡蛋",
+        "unit": "个",
+        "unit_price": 2.5
+    },
+    {
+        "category": "副食",
+        "name": "创食人海带33克",
+        "unit": "袋",
+        "unit_price": 1.0
+    },
+    {
+        "category": "副食",
+        "name": "创食人野连藕33克",
+        "unit": "带",
+        "unit_price": 1.0
+    },
+    {
+        "category": "副食",
+        "name": "法丽兹曲奇126克",
+        "unit": "盒",
+        "unit_price": 11.5
+    },
+    {
+        "category": "副食",
+        "name": "丽芝士纳宝奶烙威化145克",
+        "unit": "盒",
+        "unit_price": 6.5
+    },
+    {
+        "category": "副食",
+        "name": "天香吊炉锅巴",
+        "unit": "袋",
+        "unit_price": 4.0
+    },
+    {
+        "category": "副食",
+        "name": "意大利桶面",
+        "unit": "桶",
+        "unit_price": 6.5
+    },
+    {
+        "category": "副食",
+        "name": "嘉士利牛扎糖",
+        "unit": "袋",
+        "unit_price": 10.0
+    },
+    {
+        "category": "副食",
         "name": "鹏丰加蛋烤片",
         "unit": "盒",
         "unit_price": 10.0
@@ -79,21 +205,9 @@
     },
     {
         "category": "副食",
-        "name": "嘉士利果乐果香205克",
-        "unit": "袋",
-        "unit_price": 6.0
-    },
-    {
-        "category": "副食",
         "name": "散称董小姐薯片",
         "unit": "斤",
         "unit_price": 27.0
-    },
-    {
-        "category": "副食",
-        "name": "散称蛋糕",
-        "unit": "斤",
-        "unit_price": 22.0
     },
     {
         "category": "副食",
@@ -103,27 +217,15 @@
     },
     {
         "category": "副食",
-        "name": "冻干冰糖葫芦",
-        "unit": "斤",
-        "unit_price": 45.0
-    },
-    {
-        "category": "副食",
         "name": "公仔碗面30克",
-        "unit": "袋",
+        "unit": "盒",
         "unit_price": 3.0
     },
     {
         "category": "副食",
         "name": "公仔碗面75克",
-        "unit": "袋",
+        "unit": "盒",
         "unit_price": 5.5
-    },
-    {
-        "category": "副食",
-        "name": "孝感米酒260克",
-        "unit": "杯",
-        "unit_price": 1.5
     },
     {
         "category": "副食",
@@ -166,12 +268,6 @@
         "name": "脆香米24克",
         "unit": "个",
         "unit_price": 3.5
-    },
-    {
-        "category": "副食",
-        "name": "600g旺佳麻饼",
-        "unit": "袋",
-        "unit_price": 10.0
     },
     {
         "category": "副食",
@@ -220,12 +316,6 @@
         "name": "旺旺维多利",
         "unit": "袋",
         "unit_price": 2.5
-    },
-    {
-        "category": "副食",
-        "name": "旺旺果冻200克",
-        "unit": "袋",
-        "unit_price": 2.0
     },
     {
         "category": "副食",
@@ -283,12 +373,6 @@
     },
     {
         "category": "副食",
-        "name": "一品香辣条",
-        "unit": "袋",
-        "unit_price": 4.0
-    },
-    {
-        "category": "副食",
         "name": "三杠豆豆干",
         "unit": "袋",
         "unit_price": 4.0
@@ -313,27 +397,9 @@
     },
     {
         "category": "副食",
-        "name": "康辉锅巴",
-        "unit": "袋",
-        "unit_price": 4.0
-    },
-    {
-        "category": "副食",
-        "name": "欧龙小麻花",
-        "unit": "袋",
-        "unit_price": 6.0
-    },
-    {
-        "category": "副食",
         "name": "欧龙手工膜片",
         "unit": "袋",
         "unit_price": 6.0
-    },
-    {
-        "category": "副食",
-        "name": "碗德芙",
-        "unit": "盒",
-        "unit_price": 38.0
     },
     {
         "category": "副食",
@@ -409,18 +475,6 @@
     },
     {
         "category": "干货及其他",
-        "name": "五峰毛尖500克",
-        "unit": "袋",
-        "unit_price": 80.0
-    },
-    {
-        "category": "干货及其他",
-        "name": "五峰毛尖250克",
-        "unit": "袋",
-        "unit_price": 40.0
-    },
-    {
-        "category": "干货及其他",
         "name": "佛子岭面900克",
         "unit": "把",
         "unit_price": 7.5
@@ -439,12 +493,6 @@
     },
     {
         "category": "干货及其他",
-        "name": "双汇王中王90克",
-        "unit": "支",
-        "unit_price": 3.5
-    },
-    {
-        "category": "干货及其他",
         "name": "双汇王中王55克",
         "unit": "支",
         "unit_price": 2.5
@@ -457,21 +505,51 @@
     },
     {
         "category": "干货及其他",
+        "name": "陈克明精制阳春挂面750克",
+        "unit": "把",
+        "unit_price": 8.5
+    },
+    {
+        "category": "干货及其他",
         "name": "番茄酱",
         "unit": "瓶",
         "unit_price": 5.0
     },
     {
         "category": "牛奶",
-        "name": "特仑苏",
-        "unit": "箱",
-        "unit_price": 58.0
+        "name": "蒙牛纯真燕麦红枣",
+        "unit": "件",
+        "unit_price": 65.0
     },
     {
         "category": "牛奶",
-        "name": "安慕希原味",
+        "name": "蒙牛真果粒",
+        "unit": "提",
+        "unit_price": 38.0
+    },
+    {
+        "category": "牛奶",
+        "name": "蒙牛酸酸乳",
+        "unit": "件",
+        "unit_price": 38.0
+    },
+    {
+        "category": "牛奶",
+        "name": "六个核桃养元",
+        "unit": "件",
+        "unit_price": 72.0
+    },
+    {
+        "category": "牛奶",
+        "name": "六个核桃养生",
+        "unit": "件",
+        "unit_price": 62.0
+    },
+    {
+        "category": "牛奶",
+        "name": "特仑苏",
         "unit": "箱",
-        "unit_price": 60.0
+        "unit_price": 58.0
     },
     {
         "category": "牛奶",
@@ -489,19 +567,19 @@
         "category": "水果",
         "name": "凤梨",
         "unit": "个",
-        "unit_price": 18.0
+        "unit_price": 20.0
     },
     {
         "category": "水果",
         "name": "千禧",
         "unit": "斤",
-        "unit_price": 7.5
+        "unit_price": 5.8
     },
     {
         "category": "水果",
         "name": "砂糖橘",
         "unit": "斤",
-        "unit_price": 6.0
+        "unit_price": 5.5
     },
     {
         "category": "水果",
@@ -555,13 +633,13 @@
         "category": "水果",
         "name": "红心火龙果",
         "unit": "斤",
-        "unit_price": 14.5
+        "unit_price": 13.5
     },
     {
         "category": "水果",
         "name": "精品猕猴桃",
-        "unit": "盒",
-        "unit_price": 8.5
+        "unit": "斤",
+        "unit_price": 5.0
     },
     {
         "category": "水果",
@@ -589,9 +667,21 @@
     },
     {
         "category": "禽肉类",
+        "name": "鸡脯",
+        "unit": "斤",
+        "unit_price": 16.5
+    },
+    {
+        "category": "禽肉类",
+        "name": "鸭腿",
+        "unit": "斤",
+        "unit_price": 11.5
+    },
+    {
+        "category": "禽肉类",
         "name": "土鸡蛋",
         "unit": "斤",
-        "unit_price": 5.48
+        "unit_price": 5.58
     },
     {
         "category": "禽肉类",
@@ -610,12 +700,6 @@
         "name": "仔排",
         "unit": "斤",
         "unit_price": 40.0
-    },
-    {
-        "category": "禽肉类",
-        "name": "猪脚",
-        "unit": "斤",
-        "unit_price": 28.0
     },
     {
         "category": "禽肉类",
@@ -675,13 +759,13 @@
         "category": "蔬菜",
         "name": "西红柿",
         "unit": "斤",
-        "unit_price": 5.99
+        "unit_price": 6.78
     },
     {
         "category": "蔬菜",
         "name": "蒜苔",
         "unit": "斤",
-        "unit_price": 9.9
+        "unit_price": 10.8
     },
     {
         "category": "蔬菜",
@@ -729,7 +813,7 @@
         "category": "蔬菜",
         "name": "藕",
         "unit": "斤",
-        "unit_price": 5.99
+        "unit_price": 5.28
     },
     {
         "category": "蔬菜",
@@ -753,19 +837,13 @@
         "category": "蔬菜",
         "name": "螺丝椒",
         "unit": "斤",
-        "unit_price": 6.99
+        "unit_price": 6.48
     },
     {
         "category": "蔬菜",
         "name": "青泡椒",
         "unit": "斤",
-        "unit_price": 7.48
-    },
-    {
-        "category": "蔬菜",
-        "name": "四季豆",
-        "unit": "斤",
-        "unit_price": 13.0
+        "unit_price": 6.99
     },
     {
         "category": "蔬菜",
@@ -783,7 +861,7 @@
         "category": "蔬菜",
         "name": "莴笋",
         "unit": "斤",
-        "unit_price": 2.99
+        "unit_price": 2.48
     },
     {
         "category": "蔬菜",
@@ -843,12 +921,18 @@
         "category": "蔬菜",
         "name": "节节根",
         "unit": "斤",
-        "unit_price": 3.99
+        "unit_price": 4.48
     },
     {
         "category": "蔬菜",
         "name": "玉米",
         "unit": "个",
-        "unit_price": 3.3
+        "unit_price": 3.5
+    },
+    {
+        "category": "蔬菜",
+        "name": "大白菜",
+        "unit": "斤",
+        "unit_price": 1.28
     }
 ]

@@ -1,11 +1,11 @@
 
-let good = true;
+let good = false;
 let order = true;
 let user = true;
 
 let CounterModel = require('../models/counters');
 
-
+// CounterModel.deleteMany()
 if (good){
     //添加商品counter;
     CounterModel.deleteOne({_id:"Good"})
@@ -34,16 +34,18 @@ if (user){
             new CounterModel({
                 _id: "User"
             }).save()
-                .then(()=> {
-                    CounterModel.find({}, (err, doc) => {
-                        if (err) {
-                            return;
-                        }
-                        console.log(doc);
-                    })
-                })
         })
 }
+
+// if (order){
+//     //添加用户counter;
+//     CounterModel.deleteOne({_id:"Order"})
+//         .then(()=>{
+//             new CounterModel({
+//                 _id: "Order"
+//             }).save()
+//         })
+// }
 
 
 

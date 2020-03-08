@@ -31,5 +31,23 @@
 		},
 		"softinputNavBar": "none",
 		"navigationStyle":"custom"
+	},
+	
+	"tabBar": {
+	    "color": "#7A7E83",
+	    "selectedColor": "#1164ff",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/home/home",
+	        "iconPath": "static/image/extui.png",
+	        "selectedIconPath": "static/image/extuiHL.png",
+	        "text": "店铺首页"
+	    }, {
+	        "pagePath": "pages/orderlist/order-list",
+	        "iconPath": "static/image/template.png",
+	        "selectedIconPath": "static/image/templateHL.png",
+	        "text": "我的订单"
+	    }]
 	}
 }

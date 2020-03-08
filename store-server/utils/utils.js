@@ -1,16 +1,3 @@
-// let moment = require('moment');
-
-// /**
-//  * @description  转换unix 到 UTC时间
-//  * **/
-// function transformUnixToUTC($time){
-// 	return (new Date($time * 1000)).format("YYYY-MM-DD");
-// }
-
-// module.exports = {
-// 	transformUnixToUTC
-// }
-
 function dateFormat(fmt, date) {
     let ret;
     const opt = {
