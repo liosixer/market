@@ -28,12 +28,13 @@ let OrderSchema = mongoose.Schema({
 OrderSchema.statics.ERROR_ORDER_SAVE = "ERROR_ORDER_SAVE";
 OrderSchema.statics.ERROR_ORDER_UPDATE = "ERROR_ORDER_UPDATE";
 
-//订单状态 0 创建 1待确认 2确认 3取消订单 4 配送中 ； 5 订单完成
-OrderSchema.statics.STATUS_UNDETERMINED = 1;
-OrderSchema.statics.STATUS_CHECKED      = 2;
-OrderSchema.statics.STATUS_CANCEL       = 3;
-OrderSchema.statics.STATUS_DISPATCHING  = 4;
-OrderSchema.statics.STATUS_DONE         = 5;
+//订单状态 0 创建 1待确认 2分拣中 3用户取消订单 4 商户取消订单 5配送中 6 订单完成
+OrderSchema.statics.STATUS_UNDETERMINED     = 1;
+OrderSchema.statics.STATUS_CHECKED          = 2;
+OrderSchema.statics.STATUS_CANCEL_BY_USER   = 3;
+OrderSchema.statics.STATUS_CANCEL_BY_SHOP   = 4;
+OrderSchema.statics.STATUS_DISPATCHING      = 5;
+OrderSchema.statics.STATUS_DONE             = 6;
 
 // 定义订单数据模型
 let OrderModel = mongoose.model("Order", OrderSchema, "Orders");

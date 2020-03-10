@@ -14,7 +14,6 @@ router.get('/detail/:id', function(req, res, next) {
 /* GET home page. */
 router.get('/list/:mobile', function(req, res, next) {
     let OrderModel = require("../models/order");
-    let utils = require("../utils/utils");
     let day = new Date();
 
     var preDay = day.getTime() - 3*24*60*60*60;
@@ -43,13 +42,13 @@ router.post("/save", function(req, res, next){
     let UserModel = require("../models/user");
 
     //定义订单orderModel
-    let orderM = new OrderModel(req.body);
-
-    let userM = new UserModel({
-        mobile:orderM.mobile
-    });
-    //有就修改， 没有就添加上去
-    UserModel.findOneAndUpdate({mobile:userM.mobile}, {mobile: orderM.mobile}, {upsert:true});
+    // let orderM = new OrderModel(req.body);
+    //
+    // let userM = new UserModel({
+    //     mobile:orderM.mobile
+    // });
+    // //有就修改， 没有就添加上去
+    // UserModel.findOneAndUpdate({mobile:userM.mobile}, {mobile: orderM.mobile}, {upsert:true});
 
     if (orderM.id == 0) {
         //保存当前订单
@@ -66,6 +65,8 @@ router.post("/save", function(req, res, next){
                         message: err.message
                     });
                 }
+                //通知客户端
+                res.send({err_code:0});
                 //自增数列
                 Counter.getNextSequence("Order").exec();
             })
@@ -82,30 +83,14 @@ router.post("/save", function(req, res, next){
                 }
             })
     }
-    res.send({err_code:0});
 });
 
 
 router.get("/cancel/:id", function (req,res,next) {
     let OrderModel = require("../models/order");
-    // OrderModel.find({id:req.params.id}, (err, doc)=>{
-    //     if (err) {
-    //         return res.json({
-    //             err_code:-1,
-    //             err_msg:err.message
-    //         });
-    //     }
-    //
-    //     var orderM = new OrderModel(doc[0]);
-    //     orderM.status = OrderModel.STATUS_CANCEL;
-    //     //取消订单成功后返回
-    //     OrderModel.save().then(()=>{
-    //         res.status(200).send({err_code:0});
-    //     });
-    // })
 
     OrderModel.findOneAndUpdate({id:req.params.id},
-        {status:OrderModel.STATUS_CANCEL},
+        {status:OrderModel.STATUS_CANCEL_BY_USER},
         {},
         (err,doc)=>{
         if (err){
@@ -117,5 +102,42 @@ router.get("/cancel/:id", function (req,res,next) {
         res.status(200).send({err_code:0})
     })
 })
+
+router.get("/manager/:status", function (req,res,next) {
+    let OrderModel = require("../models/order");
+    let utils = require("../utils/utils");
+    let day = new Date();
+    let status = req.params.status;
+    //订单状态 0 创建 1待确认 2分拣中 3用户取消订单 4 商户取消订单 5配送中 6 订单完成
+    let query = status == -1 ? {"$in":[1,2,4,5,6]} : {"$eq": status};
+    var preDay = day.getTime() - 3*24*60*60*60;
+    OrderModel.find( {status: query})
+        .sort({create_at:-1})
+        .exec((err,doc)=>{
+            if (err) {
+                return res.json({ err_code: -1,
+                    message: err.message});
+            }
+            res.send({err_code:0, list:doc.length > 0 ? doc:[]});
+        })
+})
+
+router.post("/manager/change", function (req,res,next) {
+    let OrderModel = require("../models/order");
+    OrderModel.findOneAndUpdate({id:req.body.id},
+        {status:req.body.status},
+        {},
+        (err,doc)=>{
+            if (err){
+                return res.json({
+                    err_code:-1,
+                    err_msg:err.message
+                });
+            }
+            res.status(200).send({err_code:0})
+        })
+})
+
+
 
 module.exports = router;

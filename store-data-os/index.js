@@ -1,5 +1,5 @@
-var resetOrder = require("./resetOrder");
-resetOrder();
+// var resetOrder = require("./resetOrder");
+// resetOrder();
 
 
 var insertGoods = require("./insert_goods");

@@ -144,7 +144,7 @@
 			
 			freshOrderList:function(){
 				var mobile = this.user.mobile;
-				if (mobile == null) return;
+				if (mobile == null || mobile.length == 0) return;
 				//请求数据
 				orderJs.getRecentOrder(mobile, (result)=>{
 					if (result.data.err_code == 0){

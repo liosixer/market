@@ -8,7 +8,7 @@ var market_release = 'mongodb+srv://liosixer:liosixer2db@cluster0-ecuo5.azure.mo
 var market_test = 'mongodb+srv://liosixer:liosixer2db@cluster0-ecuo5.azure.mongodb.net/' +
     'test?retryWrites=true&w=majority';
 
-var url = market_test;
+var url = market_release;
 
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);

@@ -29,7 +29,7 @@ const PORT_LOCAL_DATA_BASE = 3000;
 const PROXY = 10000;
 
 function getReqURL(){
-	return DATA_BASE_REMOTE + ":" + PORT_DATA_BASE_TEST
+	return DATA_BASE_REMOTE + ":" + PORT_DATA_BASE
 }
 
 module.exports = {
